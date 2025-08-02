@@ -1,2 +1,2 @@
 #!/bin/bash
-awk 'BEGIN{for(i=97;i<=122;i++)for(j=97;j<=122;j++)if(i!=111||j!=111)print sprintf("%c%c",i,j)}'
+awk 'BEGIN{for(i=97;i<=122;i++)for(j=97;j<=122;j++)if(!(i==111 && j==111))print sprintf("%c%c",i,j)}'
