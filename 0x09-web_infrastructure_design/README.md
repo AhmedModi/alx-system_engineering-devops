@@ -85,6 +85,43 @@ This improves on Task 1 by adding **security, encryption, and monitoring**.
 3. Web servers handle requests and interact with DB.
 4. Monitoring agents collect logs, metrics, and alerts in real-time.
 
+3: Scale Up — README Content
+Infrastructure Overview
+We are scaling the system from the previous secured setup by introducing additional servers and separating responsibilities between components.
+
+Components Added
+Additional Application Server
+
+Why: To handle more requests and balance the load between application processes, reducing the risk of one server becoming a bottleneck.
+
+Additional Load Balancer (HAProxy) configured in active-passive cluster mode
+
+Why: If one load balancer fails, the other takes over automatically (high availability). This prevents downtime from a single point of failure.
+
+Separation of Concerns
+
+Web Server: Serves static files (HTML, CSS, JavaScript, images).
+
+Application Server: Runs backend logic (e.g., Python, PHP, Node.js).
+
+Database Server: Stores persistent data.
+
+Architecture Description
+Clients connect to a load balancer cluster (2 HAProxy servers).
+
+Load balancer distributes requests between two web servers.
+
+Each web server forwards dynamic requests to application servers.
+
+Application servers interact with a single database server (secured & backed up).
+
+Security & Scaling
+HTTPS is enforced on load balancers.
+
+Firewall rules protect database from outside access.
+
+Application scaling is horizontal: adding more application servers as needed.
+
 **Issues:**
 
 * **SSL Termination at Load Balancer:** Traffic between Load Balancer and servers is unencrypted.
