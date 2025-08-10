@@ -60,6 +60,8 @@ This improves on Task 1 by adding **security, encryption, and monitoring**.
 
 **Components Added:**
 
+---
+
 * **3 Firewalls:**
 
   * Between the internet and Load Balancer.
@@ -85,7 +87,7 @@ This improves on Task 1 by adding **security, encryption, and monitoring**.
 3. Web servers handle requests and interact with DB.
 4. Monitoring agents collect logs, metrics, and alerts in real-time.
 
-3: Scale Up — README Content
+## 3: Scale Up — README Content
 Infrastructure Overview
 We are scaling the system from the previous secured setup by introducing additional servers and separating responsibilities between components.
 
